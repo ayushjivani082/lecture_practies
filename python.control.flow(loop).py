@@ -29,6 +29,8 @@ for fruit in fruits:
 
 for number in num:
     print(number * 19)
+
+
     
 
 
