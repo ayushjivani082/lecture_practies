@@ -1,12 +1,5 @@
 # python patterns
 
-n = 5
-
-for i in range(1, n + 1):
-    print(" " * (2 * (n - i)) + "  ".join("*" * i))
-
-for i in range(n - 1, 0, -1):
-    print(" " * (2 * (n - i)) + "  ".join("*" * i))
 
 
 # star Triangle
