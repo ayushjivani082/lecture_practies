@@ -127,3 +127,22 @@ for element in arr:
 
 print(even)
 print(odd)
+
+# Q.7 find the every alternate element from array
+
+arr = [10 , 20 , 30 , 40 , 50 , 60 , 70 , 80]
+
+# first five element
+
+print("First five element:", arr[:5])
+
+# Every alternate element
+print("Every alternate element:",arr[::2])
+
+# Q.8  print the first , middle and last element in array
+
+arr = [10 , 20 , 30 , 40 , 50]
+
+print("First element:",arr[0])
+print("Last element:",arr[-1])
+print("middle element:",arr[len(arr)//2])
