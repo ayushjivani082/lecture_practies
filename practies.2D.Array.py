@@ -131,8 +131,7 @@ number = [40 , 30 , 50 , 10 , 20]
 
 number.sort()
 
-print("Sorted list:" , number
-      )
+print("Sorted list:" , number)
 
 #Q.7 sorted list of dictionary by specific key
 
