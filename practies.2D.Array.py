@@ -152,7 +152,7 @@ for student in sorted_student:
 
 numbers = [10 , 20 , 40 , 60 , 70 , 90]
 
-# sort() changes thr original list
+# sort() changes the original list
 
 print("After sort():",numbers)
 
