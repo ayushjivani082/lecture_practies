@@ -69,16 +69,51 @@ class SavingAccount(BankAccount):
 
 class CurrentAccount(BankAccount):
 
-    def __init__(self, account_number, account_name, balance, overdraft):
-        super().__init__(account_number, account_name, balance)
-        self.overdraft = overdraft
+  """ current account that allow overdraft up to limit."""
 
-    def add_interest(self):
-        print("Current Overdraft:", self.overdraft)
+  def __init__(self , account_number , account_name ,  balance = 0 , overdraft_limit = 1000):
+    super().__init__(account_number , account_name ,  balance)
+    self.overdraft_limit = overdraft_limit
 
+  def withdraw(self , amount):
 
-saving = SavingAccount("101", "Ayush", 10000, 4)
-current = CurrentAccount("102", "Man", 15000, 5000)
+    new_balance = self.get_balance() - amount
 
-SavingAccount.show()
-CurrentAccount.show()
+    if amount >= 0 and new_balance >= -self.overdraft_limit:
+      self._update_balance(new_balance)
+    
+    else:
+      print(f"Withdraw failed: overdraft limit of {self.overdraft_limit} exceeded.")
+
+def show(account):
+  """Display an account's type , number and balance."""
+  print(f"[{type(account).__name__}]"
+        f"{account.get_account_number()} -> {account.get_balance():.2f}"
+  )
+
+if __name__ == "__main__":
+
+  saving = SavingAccount("SAVING-101" , "Vivek" , 5000 , interest_rate=4)
+
+  show(saving)
+
+  saving.deposit(15000)
+
+  show(saving)
+
+  saving.withdraw(5000)
+
+  show(saving)
+
+  earned = saving.add_interest()
+
+  show(saving)
+
+  current = CurrentAccount("CUR-101" ,"Vivek" ,   2000 , overdraft_limit=1000)
+
+  show(current)
+
+  current.withdraw(4000)
+
+  show(current)
+
